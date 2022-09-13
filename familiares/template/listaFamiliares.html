@@ -8,9 +8,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Familiares</title>
     <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+    <style>
+        header{
+            text-align: center;
+            color: tomato;
+            padding-top: 20px;
+        }
+    </style>
 </head>
 <body>
+
+    <header>
+        <h1>Lista de Familiares</h1>
+    </header>
+    <br>
     
+    <div class="row col-12 justify-content-end mb-2 pr-0">
+        <!-- <button type="button" class="btn btn-success col-md-2">Agregar Nuevo</button> -->
+        <a href="{% url 'registrarFamiliar' %}" class="btn btn-success col-md-2">Agregar Nuevo</a>
+    </div>
+
     <table class="table table-striped">
         <thead>
           <tr>
@@ -18,14 +35,14 @@
             <th scope="col">Nombre</th>
             <th scope="col">Apellido</th>
             <th scope="col">Telefono</th>
-            <th scope="col">Fecha de Nacimineto</th>
+            <th scope="col">Fecha de Nacimiento</th>
           </tr>
         </thead>
         <tbody>
             {% for familiar in familiares %}
 
           <tr>
-            <th scope="row">{{ familiar.ID }}</th>
+            <th scope="row">{{ familiar.id }}</th>
             <td>{{ familiar.nombre }}</td>
             <td>{{ familiar.apellido }}</td>
             <td>{{ familiar.telefono }}</td>

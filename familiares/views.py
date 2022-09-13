@@ -9,6 +9,9 @@ from familiares.forms import Formularios
 
 class Formulario_view(HttpRequest):
 
+    def home(request):
+        return render(request, 'home.html')
+
     def index(request):
         familiar = Formularios()
         return render(request, 'index.html', {"form":familiar})
