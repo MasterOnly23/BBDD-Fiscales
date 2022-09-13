@@ -36,6 +36,8 @@
             <th scope="col">Apellido</th>
             <th scope="col">Telefono</th>
             <th scope="col">Fecha de Nacimiento</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
@@ -47,6 +49,8 @@
             <td>{{ familiar.apellido }}</td>
             <td>{{ familiar.telefono }}</td>
             <td>{{ familiar.fecha_nacimiento }}</td>
+            <td><a href="{% url 'editFamiliar' familiar.id %}" class="btn btn-warning">Editar</a></td>
+            <td><a href="#" class="btn btn-danger">Eliminar</a></td>
           </tr>
             {% endfor %}
         </tbody>
