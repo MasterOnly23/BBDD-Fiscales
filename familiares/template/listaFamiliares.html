@@ -28,6 +28,14 @@
         <a href="{% url 'registrarFamiliar' %}" class="btn btn-success col-md-2">Agregar Nuevo</a>
     </div>
 
+    {% if msg %}
+
+        <div class="alert alert-danger" role="alert">
+            Registro Eliminado
+        </div>
+
+    {% endif %}
+    
     <table class="table table-striped">
         <thead>
           <tr>
@@ -50,7 +58,9 @@
             <td>{{ familiar.telefono }}</td>
             <td>{{ familiar.fecha_nacimiento }}</td>
             <td><a href="{% url 'editFamiliar' familiar.id %}" class="btn btn-warning">Editar</a></td>
-            <td><a href="#" class="btn btn-danger">Eliminar</a></td>
+            <td><a href="{% url 'eliminarFamiliar' familiar.id %}" class="btn btn-danger">Eliminar</a></td>
+            <!-- agregamos un mensaje para que el usuario sepa que el objeto se elimino -->
+            
           </tr>
             {% endfor %}
         </tbody>

@@ -40,13 +40,21 @@ class Formulario_view(HttpRequest):
 
     def actualizar_familiar(request, id_familiar):
 
-        familiar = Familiares.objects.get(pk=id_familiar) #get para seleccionar el objeto en la base de datos
+        familiar = Familiares.objects.get(pk=id_familiar) #(pk=primary key)  get para seleccionar el objeto en la base de datos
         form = Formularios(request.POST, instance=familiar) #con request post le digo que obtenga los datos que se ingresaron en el formulario
         # y lo matchee con el objeto de la base de datos
 
         if form.is_valid(): #si el formulario es valido
             form.save()
 
-        familiar = Familiares.objects.all() #acemos de nuevo una peticion a la base de datos para redireccionar al usuario a la lista de familiares despues de actualizar el objeto
-        return render(request, 'listaFamiliares.html', {"familiares":familiar})
+        familiares = Familiares.objects.all() #hacemos de nuevo una peticion a la base de datos para redireccionar al usuario a la lista de familiares despues de actualizar el objeto
+        return render(request, 'listaFamiliares.html', {"familiares":familiares})
+
+    def eliminar_familiar(request, id_familiar):
+
+        familiar = Familiares.objects.get(pk=id_familiar) #seleccionamos el objeto de la base de datos que queremos eliminar
+        familiar.delete() #metodo delete 
+        familiares = Familiares.objects.all()
+        return render(request, 'listaFamiliares.html', {"familiares":familiares, "msg":"OK"})#agregamos la variable msg para habilitar la alerta del mensaje cuando el alumno sea eliminado correctamente
+        
 

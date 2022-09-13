@@ -10,4 +10,5 @@ urlpatterns = [
     path('listarFamiliares/', Formulario_view.listar_familiares, name="listarFamiliares"),
     path('editFamiliar/<int:id_familiar>', Formulario_view.editar_familiar, name="editFamiliar"),
     path('actualizarFamiliar/<int:id_familiar>', Formulario_view.actualizar_familiar, name="actualizarFamiliar"),
+    path('eliminarFamiliar/<int:id_familiar>', Formulario_view.eliminar_familiar, name="eliminarFamiliar"),
 ]
