@@ -47,11 +47,11 @@
 
             {% csrf_token %} <!--elemento de seguridad-->
 
-            {% if form.errors %}
+            {% if msg %}
 
-            <div class="alert alert-success" role="alert">
-                Registro Completado
-            </div>
+                <div class="alert alert-success" role="alert">
+                    Registro Completado
+                </div>
 
             {% endif %}
 
