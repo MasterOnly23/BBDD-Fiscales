@@ -1,0 +1,57 @@
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Familiares</title>
+</head>
+<body>
+
+    {% if form.errors %}
+
+    <div class="alert alert-danger" role="alert">
+        Alert - ERROR!
+    </div>
+
+    {% endif %}
+
+    <header>
+        <h1>Familiares</h1>
+    </header>
+
+    <main>
+
+      <section>
+
+        <form action="{% url 'guardarFamiliar' %}" method="post">
+
+            {% csrf_token %} <!--elemento de seguridad-->
+
+            {% if form.errors %}
+
+            <div class="alert alert-success" role="alert">
+                Registro Completado
+            </div>
+
+            {% endif %}
+
+            {{ form|crispy }}
+
+            <button type="submit" class="btn btn-primary">Guardar</button>
+
+        </form>
+      </section>  
+
+
+
+    </main>
+
+</body>
+</html>
+
+{% endblock %}
