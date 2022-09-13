@@ -1,0 +1,41 @@
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Familiares</title>
+    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+</head>
+<body>
+    
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Fecha de Nacimineto</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for familiar in familiares %}
+
+          <tr>
+            <th scope="row">{{ familiar.ID }}</th>
+            <td>{{ familiar.nombre }}</td>
+            <td>{{ familiar.apellido }}</td>
+            <td>{{ familiar.telefono }}</td>
+            <td>{{ familiar.fecha_nacimiento }}</td>
+          </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+
+</body>
+</html>
+
+{% endblock %}
