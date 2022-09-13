@@ -24,4 +24,3 @@ class Formulario_view(HttpRequest):
 
         return render(request, 'index.html', {"form":familiar, "msg":"OK"}) #volvemos a renderiazar la misma vista para que cuando se ingrese un formulario me vuelva a dejar en misma vista para seguir ingresando
 
-
