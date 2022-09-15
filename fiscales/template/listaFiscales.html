@@ -18,8 +18,15 @@
           padding-top: 20px;
       }
       body{
-          margin-left: 25%;
-          margin-right: 25%;
+          margin-left: 12%;
+          margin-right: 12%;
+      }
+      table thead tr th{
+        border-right-width: 2px;
+      }
+      .th-edit,
+      .th-delete{
+        border-right-width: 0;
       }
     </style>
 </head>
@@ -48,24 +55,30 @@
     <table class="table table-striped">
         <thead>
           <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellido</th>
-            <th scope="col">Telefono</th>
-            <th scope="col">Fecha de Nacimiento</th>
             <th scope="col"></th>
-            <th scope="col"></th>
+            <th scope="col">Nombre Sucursal</th>
+            <th scope="col">Numero Sucursal</th>
+            <th scope="col">Modelo de Fiscal</th>
+            <th scope="col">Punto de Venta</th>
+            <th scope="col">Numero de Serie</th>
+            <th scope="col">Fecha de Cambio</th>
+            <th scope="col">Estado</th>
+            <th scope="col" class="th-edit"></th>
+            <th scope="col" class="th-delete"></th>
           </tr>
         </thead>
         <tbody>
             {% for fiscal in fiscales %}
 
           <tr>
-            <th scope="row">{{ fiscal.ID }}</th>
-            <td>{{ fiscal.nombre }}</td>
-            <td>{{ fiscal.apellido }}</td>
-            <td>{{ fiscal.telefono }}</td>
-            <td>{{ fiscal.fecha_nacimiento }}</td>
+            <th scope="row"></th>
+            <td>{{ fiscal.nombre_sucursal }}</td>
+            <td>{{ fiscal.numero_sucursal }}</td>
+            <td>{{ fiscal.modelo_fiscal }}</td>
+            <td>{{ fiscal.punto_venta }}</td>
+            <td>{{ fiscal.numero_serie }}</td>
+            <td>{{ fiscal.fecha_cambio }}</td>
+            <td>{{ fiscal.estado }}</td>
             <td><a href="{% url 'editFiscal' fiscal.id %}" class="btn btn-warning">Editar</a></td>
             <td><a href="{% url 'eliminarFiscal' fiscal.id %}" class="btn btn-danger">Eliminar</a></td>
             <!-- agregamos un mensaje para que el usuario sepa que el objeto se elimino -->
