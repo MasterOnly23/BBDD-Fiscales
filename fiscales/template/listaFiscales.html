@@ -6,26 +6,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Familiares</title>
+    <title>Fiscales</title>
     <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
     <style>
-        header{
-            text-align: center;
-            color: tomato;
-            padding-top: 20px;
-        }
+      html{
+          background-color: #f4f4f4;
+      }
+      header{
+          text-align: center;
+          color: tomato;
+          padding-top: 20px;
+      }
+      body{
+          margin-left: 25%;
+          margin-right: 25%;
+      }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Lista de Familiares</h1>
+      <a href="#" class="nav-logo"><img src="{% static '/img/logo_dr_ahorro.png' %}" alt="logo_dr_ahorro"></a>
+      <br>
+        <h1>Lista de Fiscales</h1>
     </header>
     <br>
     
     <div class="row col-12 justify-content-end mb-2 pr-0">
         <!-- <button type="button" class="btn btn-success col-md-2">Agregar Nuevo</button> -->
-        <a href="{% url 'registrarFamiliar' %}" class="btn btn-success col-md-2">Agregar Nuevo</a>
+        <a href="{% url 'registrarFiscal' %}" class="btn btn-success col-md-2">Agregar Nuevo</a>
     </div>
 
     {% if msg %}
@@ -49,16 +58,16 @@
           </tr>
         </thead>
         <tbody>
-            {% for familiar in familiares %}
+            {% for fiscal in fiscales %}
 
           <tr>
-            <th scope="row">{{ familiar.id }}</th>
-            <td>{{ familiar.nombre }}</td>
-            <td>{{ familiar.apellido }}</td>
-            <td>{{ familiar.telefono }}</td>
-            <td>{{ familiar.fecha_nacimiento }}</td>
-            <td><a href="{% url 'editFamiliar' familiar.id %}" class="btn btn-warning">Editar</a></td>
-            <td><a href="{% url 'eliminarFamiliar' familiar.id %}" class="btn btn-danger">Eliminar</a></td>
+            <th scope="row">{{ fiscal.ID }}</th>
+            <td>{{ fiscal.nombre }}</td>
+            <td>{{ fiscal.apellido }}</td>
+            <td>{{ fiscal.telefono }}</td>
+            <td>{{ fiscal.fecha_nacimiento }}</td>
+            <td><a href="{% url 'editFiscal' fiscal.id %}" class="btn btn-warning">Editar</a></td>
+            <td><a href="{% url 'eliminarFiscal' fiscal.id %}" class="btn btn-danger">Eliminar</a></td>
             <!-- agregamos un mensaje para que el usuario sepa que el objeto se elimino -->
             
           </tr>

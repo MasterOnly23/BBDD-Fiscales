@@ -8,13 +8,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Familiares</title>
+    <title>Actualizar Fiscal</title>
     <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
     <style>
+        html{
+            background-color: #f4f4f4;
+        }
         header{
             text-align: center;
             color: tomato;
             padding-top: 20px;
+        }
+        body{
+            margin-left: 25%;
+            margin-right: 25%;
         }
     </style>
 </head>
@@ -29,13 +36,15 @@
     {% endif %}
 
     <header>
-        <h1>Familiares</h1>
+        <a href="#" class="nav-logo"><img src="{% static '/img/logo_dr_ahorro.png' %}" alt="logo_dr_ahorro"></a>
+        <br>
+        <h1>Actualizar Fiscal</h1>
     </header>
     <br>
     <div>
         <div class="row col-12 justify-content-end mb-2 pr-0">
             <!-- <button type="button" class="btn btn-success col-md-2">Agregar Nuevo</button> -->
-            <a href="{% url 'listarFamiliares' %}" class="btn btn-success col-md-3">Listar Familiares</a>
+            <a href="{% url 'listaFiscales' %}" class="btn btn-success col-md-3">Listar Fiscales</a>
         </div>
     </div>
 
@@ -43,14 +52,14 @@
 
       <section>
 
-        <form action="{% url 'guardarFamiliar' %}" method="post">
+        <form action="{% url 'actualizarFiscal' fiscal.id %}" method="post">
 
             {% csrf_token %} <!--elemento de seguridad-->
 
             {% if msg %}
 
                 <div class="alert alert-success" role="alert">
-                    Registro Completado
+                    Registro Actualizado
                 </div>
 
             {% endif %}

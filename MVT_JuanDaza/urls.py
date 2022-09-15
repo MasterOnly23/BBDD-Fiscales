@@ -16,10 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from familiares.views import Formulario_view
+from fiscales.views import Formulario_view
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('familiares/', include("familiares.urls")),
+    path('', Formulario_view.home),
+    path('fiscales/', include('fiscales.urls')),
 ]
 

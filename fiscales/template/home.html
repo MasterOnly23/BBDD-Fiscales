@@ -1,0 +1,58 @@
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <style>
+        html{
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header{
+            text-align: center;
+            color: tomato;
+            padding-top: 20px;
+            
+        }
+        nav{
+            margin-left: 25%;
+            margin-right: 25%;
+        }
+        .nav-link{
+            font-size: 30px;
+        }
+        .title{
+            font-size: 50px;
+        }
+        .nav-item{
+            padding-right: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="nav-logo"><img src="{% static '/img/logo_dr_ahorro.png' %}" alt="logo_dr_ahorro"></a>
+        <br>
+        <h1 class="title">Impresoras Fiscales</h1>
+        
+        <br>
+        <br>
+        <br>
+        <nav class="navegador">
+            <ul>
+                <li class="nav-item"><a href="{% url 'registrarFiscal' %}" class="nav-link">Registrar Fiscales</a></li>
+                <li><a href="{% url 'listaFiscales' %}" class="nav-link">Listar Fiscales</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>
+
+{% endblock %}
