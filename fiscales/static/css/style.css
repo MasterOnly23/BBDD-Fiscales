@@ -1,10 +1,14 @@
+ @font-face { font-family: NCAASyracuseOrange; src: url('static/fonts/NCAA Syracuse Orange.otf'); }
+ 
  body{
-    background-color: #f4f4f4;
+    background-color: white;
 }
+
 
 .title{
     text-align: center;
-    color: tomato;
+    color: #15344f;
+    font-family: NCAASyracuseOrange;
 
 }
 
@@ -33,5 +37,10 @@
     background-color: #333333;
     color: #ffffff;
  }
+
+.nav-logo{
+   margin: auto !important;
+   align-items: center;
+}
 
  
