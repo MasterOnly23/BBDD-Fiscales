@@ -27,7 +27,8 @@
         header{
             text-align: center;
             color: #15344f !important;
-            padding-top: 20px;
+            padding-top: 25%;
+            
             
         }
         nav{
@@ -39,9 +40,17 @@
         }
         .title{
             font-size: 50px;
+            padding-left: 2.5%;
         }
         .nav-item{
             padding-right: 30px;
+        }
+        .nav-logo{
+            padding-left: 7%;
+            padding-bottom: 20%;
+        }
+        .navegador{
+            padding-left: 5%;
         }
     </style>
 </head>
@@ -49,6 +58,10 @@
     <header>
         <a href="#" class="nav-logo"><img src="{% static '/img/logo_dr_ahorro.png' %}" alt="logo_dr_ahorro"></a>
         <br>
+        <br>
+        <br>
+        <br>
+        
         <h1 class="title">Impresoras Fiscales</h1>
         
         <br>
@@ -57,7 +70,7 @@
         <nav class="navegador">
             <ul>
                 <li class="nav-item"><a href="{% url 'registrarFiscal' %}" class="nav-link">Registrar Fiscales</a></li>
-                <li><a href="{% url 'listaFiscales' %}" class="nav-link">Listar Fiscales</a></li>
+                <li class="nav-item"><a href="{% url 'listaFiscales' %}" class="nav-link">Listar Fiscales</a></li>
             </ul>
         </nav>
     </header>
