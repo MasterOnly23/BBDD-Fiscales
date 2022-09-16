@@ -1,3 +1,6 @@
+{% block content %}
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +8,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fiscales</title>
+    <style>
+        @font-face { font-family: NCAASyracuseOrange; src: url('static/fonts/NCAA Syracuse Orange.otf'); }
+        html{
+            background-color: #f4f4f4;
+        }
+        header{
+            text-align: center;
+            color: #15344f;
+            padding-top: 20px;
+        }
+        body{
+            margin-left: 11%;
+            margin-right: 11%;
+            padding-left: 2%;
+            padding-right: 2%;
+            background-color: white;
+            height: max-content;
+            min-height: 100vh;
+        }
+        table thead tr th{
+          border-right-width: 2px;
+        }
+        .th-edit,
+        .th-delete{
+          border-right-width: 0;
+        }
+        .title{
+              font-family: NCAASyracuseOrange;
+              font-weight: bold 120;
+              padding-top: 20px;
+          }
+        .form-inline{
+          display: flex;
+          align-items: center;
+          width: 100%;
+          padding-inline-start: 1.2rem;
+        }
+        
+        .btn-agregar{
+          margin-right: 50px;
+        }
+  
+        .input-buscar{
+          padding-right: 10px;
+          width: 250px;
+          height: fit-content;
+          padding: 7px;
+        }
+        .button-buscar{
+          padding-left: 10px;
+          margin-left: 20px;
+          height: inherit;
+          padding: 6px;
+          width: 6rem;
+        }
+        .container-buscar{
+          display: flex;
+           align-items: center;
+        }
+      </style>
 </head>
 <body>
     <header>
@@ -16,3 +79,5 @@
 
 </body>
 </html>
+
+{% endblock %}
