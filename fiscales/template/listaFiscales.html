@@ -24,7 +24,8 @@
           padding-left: 2%;
           padding-right: 2%;
           background-color: white;
-          height: 100vh;
+          height: max-content;
+          min-height: 100vh;
       }
       table thead tr th{
         border-right-width: 2px;
@@ -38,13 +39,13 @@
             font-weight: bold 120;
             padding-top: 20px;
         }
-       
+      
     </style>
 </head>
 <body>
 
     <header>
-      <a href="#" class="nav-logo"><img src="{% static '/img/logo_dr_ahorro.png' %}" alt="logo_dr_ahorro"></a>
+      <a href="{% url 'home' %}" class="nav-logo"><img src="{% static '/img/logo_dr_ahorro.png' %}" alt="logo_dr_ahorro"></a>
       <br>
         <h1 class="title">Lista de Fiscales</h1>
     </header>
@@ -67,9 +68,10 @@
         <thead>
           <tr>
             <th scope="col"></th>
-            <th scope="col">Nombre Sucursal</th>
             <th scope="col">Numero Sucursal</th>
+            <th scope="col">Nombre Sucursal</th>
             <th scope="col">Modelo de Fiscal</th>
+            <th scope="col">Vencimiento Certificado</th>
             <th scope="col">Punto de Venta</th>
             <th scope="col">Numero de Serie</th>
             <th scope="col">Fecha de Cambio</th>
@@ -82,10 +84,11 @@
             {% for fiscal in fiscales %}
 
           <tr>
-            <th scope="row"></th>
+            <th scope="row" class="td-data"></th>
+            <td class="nro-fiscal">{{ fiscal.numero_sucursal }}</td>
             <td>{{ fiscal.nombre_sucursal }}</td>
-            <td>{{ fiscal.numero_sucursal }}</td>
             <td>{{ fiscal.modelo_fiscal }}</td>
+            <td>{{ fiscal.vencimiento_certificado_digital }}</td>
             <td>{{ fiscal.punto_venta }}</td>
             <td>{{ fiscal.numero_serie }}</td>
             <td>{{ fiscal.fecha_cambio }}</td>

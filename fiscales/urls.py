@@ -4,7 +4,7 @@ from django.urls import path
 from fiscales.views import Formulario_view
 
 urlpatterns = [
-    path('', Formulario_view.home),
+    path('', Formulario_view.home, name='home'),
     path('registrarFiscal/', Formulario_view.registrar_fiscal, name="registrarFiscal"),
     path('guardarFiscal/', Formulario_view.guardarFiscal, name="guardarFiscal"),
     path('listarFiscales/', Formulario_view.listar_fiscales, name="listaFiscales"),
