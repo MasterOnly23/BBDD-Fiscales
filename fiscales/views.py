@@ -58,3 +58,7 @@ class Formulario_view(HttpRequest):
         return render(request, 'listaFiscales.html', {"fiscales":fiscales, "msg":"OK"})#agregamos la variable msg para habilitar la alerta del mensaje cuando el alumno sea eliminado correctamente
         
 
+    def buscar_fiscal(request, nombre_sucursal):
+        sucursal = Fiscales.objects.filter(nombre_sucursal__icontains=nombre_sucursal)
+        form = Formularios(instance=sucursal)
+        return render(request, 'buscar.html', {"form":form, "fiscal":sucursal})

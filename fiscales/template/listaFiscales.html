@@ -39,7 +39,34 @@
             font-weight: bold 120;
             padding-top: 20px;
         }
+      .form-inline{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding-inline-start: 1.2rem;
+      }
       
+      .btn-agregar{
+        margin-right: 50px;
+      }
+
+      .input-buscar{
+        padding-right: 10px;
+        width: 250px;
+        height: fit-content;
+        padding: 7px;
+      }
+      .button-buscar{
+        padding-left: 10px;
+        margin-left: 20px;
+        height: inherit;
+        padding: 6px;
+        width: 6rem;
+      }
+      .container-buscar{
+        display: flex;
+         align-items: center;
+      }
     </style>
 </head>
 <body>
@@ -51,10 +78,10 @@
     </header>
     <br>
     
-    <div class="row col-12 justify-content-end mb-2 pr-0">
+    <!-- <div class="row col-12 justify-content-end mb-2 pr-0"> -->
         <!-- <button type="button" class="btn btn-success col-md-2">Agregar Nuevo</button> -->
-        <a href="{% url 'registrarFiscal' %}" class="btn btn-success col-md-2">Agregar Nuevo</a>
-    </div>
+        <!-- <a href="{% url 'registrarFiscal' %}" class="btn btn-success col-md-2">Agregar Nuevo</a>
+    </div> -->
 
     {% if msg %}
 
@@ -64,6 +91,19 @@
 
     {% endif %}
     
+    <nav class="navbar navbar-light bg-light">
+      <form class="form-inline" action="{% url 'buscar' fiscal.nombre_sucursal %}" method="get">
+        <div class="container-buscar form-inline2">
+        <input class="form-control mr-sm-2 input-buscar" type="search" placeholder="Search..." aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-1 button-buscar" type="submit">Search</button>
+        </div>
+        <div class="row col-9 justify-content-end mb-2 ">
+          <!-- <button type="button" class="btn btn-success col-md-2">Agregar Nuevo</button> -->
+          <a href="{% url 'registrarFiscal' %}" class="btn btn-success col-md-3 btn-agregar">Agregar Nuevo</a>
+      </div>
+      </form>
+    </nav>
+
     <table class="table table-striped">
         <thead>
           <tr>
