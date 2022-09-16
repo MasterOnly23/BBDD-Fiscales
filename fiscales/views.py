@@ -59,5 +59,6 @@ class Formulario_view(HttpRequest):
         
 
     def buscar_fiscal(request, nombre_suc):
-        sucursal = Fiscales.objects.filter(nombre_sucursal__icontains=nombre_suc)
-        return render(request, 'buscar.html', {"fiscal":sucursal})
+        print(request.GET)
+        sucursal = Fiscales.objects.filter(nombre_sucursal=nombre_suc)
+        return render(request, 'buscar.html', {"sucursal":sucursal})
