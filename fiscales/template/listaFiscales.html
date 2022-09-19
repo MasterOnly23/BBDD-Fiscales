@@ -38,6 +38,11 @@
             font-family: NCAASyracuseOrange;
             font-weight: bold 120;
             padding-top: 20px;
+            display: grid;
+            width: fit-content;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
         }
       .form-inline{
         display: flex;
@@ -67,6 +72,15 @@
         display: flex;
          align-items: center;
       }
+      .link-title{
+            text-decoration: none;
+            color: #15344f !important;
+            width: 100px;
+        }
+      .titulo{
+       width: fit-content;
+       margin: auto;
+      }
     </style>
 </head>
 <body>
@@ -74,7 +88,9 @@
     <header>
       <a href="{% url 'home' %}" class="nav-logo"><img src="{% static '/img/logo_dr_ahorro.png' %}" alt="logo_dr_ahorro"></a>
       <br>
-        <h1 class="title">Lista de Fiscales</h1>
+      <div class="titulo">
+      <a href="{% url 'listaFiscales' %}" class="link-title"><h1 class="title">Lista de Fiscales</h1></a>
+      </div>
     </header>
     <br>
     

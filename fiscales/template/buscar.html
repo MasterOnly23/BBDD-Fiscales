@@ -73,19 +73,25 @@
           display: flex;
            align-items: center;
         }
+        .titulo{
+       width: fit-content;
+       margin: auto;
+      }
       </style>
 </head>
 <body>
     <header>
         <a href="{% url 'home' %}" class="nav-logo"><img src="{% static '/img/logo_dr_ahorro.png' %}" alt="logo_dr_ahorro"></a>
         <br>
+        <div class="titulo">
         <a href="{% url 'listaFiscales' %}" class="link-title"><h1 class="title">Lista de Fiscales</h1></a>
+        </div>
       </header>
       <br>
 
 
 
-      {% if msg %}
+      {% if msg == 'OK' %}
 
         <div class="alert alert-danger" role="alert">
             Registro Eliminado
@@ -93,11 +99,20 @@
 
         {% endif %}
 
+        {% if msg == 'No data'%}
+
+                    <div class="alert alert-danger" role="alert">
+                    <h3>Sin Resultados</h3>
+                    </div>
+
+        {% endif %}
+
         <nav class="navbar navbar-light bg-light">
             <form class="form-inline" action="{% url 'buscar' 'fiscal.nombre_sucursal' %}" method="get"> 
               <div class="container-buscar form-inline2">
-              <input class="form-control mr-sm-2 input-buscar" type="search" placeholder="Search..." aria-label="Search">
+              <input class="form-control mr-sm-2 input-buscar" type="search" placeholder="Search..." aria-label="Search" name="buscar">
               <button class="btn btn-outline-success my-2 my-sm-1 button-buscar" type="submit">Search</button>
+                
               </div>
               <div class="row col-9 justify-content-end mb-2 ">
                 <!-- <button type="button" class="btn btn-success col-md-2">Agregar Nuevo</button> -->
