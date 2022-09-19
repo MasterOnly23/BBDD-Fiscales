@@ -11,4 +11,5 @@ urlpatterns = [
     path('editFiscal/<int:id_fiscal>', Formulario_view.editar_fiscal, name="editFiscal"),
     path('actualizarFiscal/<int:id_fiscal>', Formulario_view.actualizar_fiscal, name="actualizarFiscal"),
     path('eliminarFiscal/<int:id_fiscal>', Formulario_view.eliminar_fiscal, name="eliminarFiscal"),
+    path('buscar/<str:nombre_suc>', Formulario_view.buscar_fiscal, name='buscar'),
 ]

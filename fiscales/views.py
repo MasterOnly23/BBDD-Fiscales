@@ -29,7 +29,12 @@ class Formulario_view(HttpRequest):
 
     def listar_fiscales(request):
         fiscales = Fiscales.objects.all()
-        return render(request, 'listaFiscales.html', {"fiscales":fiscales}) 
+        queryset = request.GET.get("buscar")
+        if queryset:
+
+            sucursal = Fiscales.objects.filter(nombre_sucursal=queryset)
+            return render(request, 'listaFiscales.html', {"sucursal":sucursal})
+        return render(request, 'listaFiscales.html', {"fiscales":fiscales})
 
 
     def editar_fiscal(request, id_fiscal):
@@ -58,3 +63,11 @@ class Formulario_view(HttpRequest):
         return render(request, 'listaFiscales.html', {"fiscales":fiscales, "msg":"OK"})#agregamos la variable msg para habilitar la alerta del mensaje cuando el alumno sea eliminado correctamente
         
 
+    def buscar_fiscal(request, nombre_suc):
+        queryset = request.GET.get("buscar")
+        if queryset:
+
+            sucursal = Fiscales.objects.filter(nombre_sucursal=queryset)
+            return render(request, 'buscar.html', {"sucursal":sucursal})
+        else:
+            return render(request, 'buscar.html', {"busqueda":queryset, "msg":'No data'})
