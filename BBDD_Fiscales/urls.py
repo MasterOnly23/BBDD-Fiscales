@@ -17,9 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 
 from fiscales.views import Formulario_view
+from backups.views import Formularios_backup
 
 urlpatterns = [
+    #crear un home con login
     path('', Formulario_view.home),
     path('fiscales/', include('fiscales.urls')),
+    path('backups/', include('backups.urls')),
 ]
 
