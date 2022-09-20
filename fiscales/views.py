@@ -32,7 +32,7 @@ class Formulario_view(HttpRequest):
         queryset = request.GET.get("buscar")
         if queryset:
 
-            sucursal = Fiscales.objects.filter(nombre_sucursal=queryset)
+            sucursal = Fiscales.objects.filter(nombre_sucursal__icontains=queryset)
             return render(request, 'listaFiscales.html', {"sucursal":sucursal})
         return render(request, 'listaFiscales.html', {"fiscales":fiscales})
 
@@ -67,7 +67,7 @@ class Formulario_view(HttpRequest):
         queryset = request.GET.get("buscar")
         if queryset:
 
-            sucursal = Fiscales.objects.filter(nombre_sucursal=queryset)
+            sucursal = Fiscales.objects.filter(nombre_sucursal__icontains=queryset)
             return render(request, 'buscar.html', {"sucursal":sucursal})
         else:
             return render(request, 'buscar.html', {"busqueda":queryset, "msg":'No data'})
