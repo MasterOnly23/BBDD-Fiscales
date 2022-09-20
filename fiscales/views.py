@@ -29,7 +29,12 @@ class Formulario_view(HttpRequest):
 
     def listar_fiscales(request):
         fiscales = Fiscales.objects.all()
-        return render(request, 'listaFiscales.html', {"fiscales":fiscales}) 
+        queryset = request.GET.get("buscar")
+        if queryset:
+
+            sucursal = Fiscales.objects.filter(nombre_sucursal=queryset)
+            return render(request, 'listaFiscales.html', {"sucursal":sucursal})
+        return render(request, 'listaFiscales.html', {"fiscales":fiscales})
 
 
     def editar_fiscal(request, id_fiscal):
@@ -59,6 +64,10 @@ class Formulario_view(HttpRequest):
         
 
     def buscar_fiscal(request, nombre_suc):
-        print(request.GET)
-        sucursal = Fiscales.objects.filter(nombre_sucursal=nombre_suc)
-        return render(request, 'buscar.html', {"sucursal":sucursal})
+        queryset = request.GET.get("buscar")
+        if queryset:
+
+            sucursal = Fiscales.objects.filter(nombre_sucursal=queryset)
+            return render(request, 'buscar.html', {"sucursal":sucursal})
+        else:
+            return render(request, 'buscar.html', {"busqueda":queryset, "msg":'No data'})
