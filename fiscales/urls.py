@@ -3,6 +3,8 @@ from django.contrib import admin
 from django.urls import path
 from fiscales.views import Formulario_view
 
+#agregar regular expressions
+
 urlpatterns = [
     path('', Formulario_view.home, name='home'),
     path('registrarFiscal/', Formulario_view.registrar_fiscal, name="registrarFiscal"),
