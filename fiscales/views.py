@@ -2,8 +2,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpRequest
-from fiscales.models import Fiscales
+from fiscales.models import Fiscales, Backups
 from fiscales.forms import Formularios
+from fiscales.scriptDrive.script import list_file
 
 # Create your views here.
 
@@ -71,3 +72,12 @@ class Formulario_view(HttpRequest):
             return render(request, 'buscar.html', {"sucursal":sucursal})
         else:
             return render(request, 'buscar.html', {"busqueda":queryset, "msg":'No data'})
+
+
+    def lista_backups(request):
+        backup = list_file("title = 'comandos django.txt'")
+        return render(request, 'listaBackups.html', {"list":backup})
+
+# no funciona
+# hacer que el scrip guarde los datos en una db y mostrarlos en el template
+# y luego hace que el script se ejecute cada tanto.

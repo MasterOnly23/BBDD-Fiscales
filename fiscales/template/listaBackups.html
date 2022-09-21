@@ -1,0 +1,142 @@
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiscales</title>
+    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+    <style>
+      @font-face { font-family: NCAASyracuseOrange; src: url('static/fonts/NCAASyracuseOrange.otf'); }
+      html{
+          background-color: #f4f4f4;
+      }
+      header{
+          text-align: center;
+          color: #15344f;
+          padding-top: 20px;
+      }
+      body{
+          margin-left: 11%;
+          margin-right: 11%;
+          padding-left: 2%;
+          padding-right: 2%;
+          background-color: white;
+          height: max-content;
+          min-height: 100vh;
+      }
+      table thead tr th{
+        border-right-width: 2px;
+      }
+      .th-edit,
+      .th-delete{
+        border-right-width: 0;
+      }
+      .title{
+            font-family: NCAASyracuseOrange;
+            font-weight: bold 120;
+            padding-top: 20px;
+            display: grid;
+            width: fit-content;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+      .form-inline{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding-inline-start: 1.2rem;
+      }
+      
+      .btn-agregar{
+        margin-right: 50px;
+      }
+
+      .input-buscar{
+        padding-right: 10px;
+        width: 250px;
+        height: fit-content;
+        padding: 7px;
+      }
+      .button-buscar{
+        padding-left: 10px;
+        margin-left: 20px;
+        height: inherit;
+        padding: 6px;
+        width: 6rem;
+      }
+      .container-buscar{
+        display: flex;
+         align-items: center;
+      }
+      .link-title{
+            text-decoration: none;
+            color: #15344f !important;
+            width: 100px;
+        }
+      .titulo{
+       width: fit-content;
+       margin: auto;
+      }
+    </style>
+</head>
+<body>
+
+    <header>
+      <a href="{% url 'home' %}" class="nav-logo"><img src="{% static '/img/logo_dr_ahorro.png' %}" alt="logo_dr_ahorro"></a>
+      <br>
+      <div class="titulo">
+      <a href="{% url 'listaFiscales' %}" class="link-title"><h1 class="title">Lista de Fiscales</h1></a>
+      </div>
+    </header>
+    <br>
+    
+    <!-- <nav class="navbar navbar-light bg-light">
+      <form class="form-inline" action="{% url 'buscar' 'fiscal.nombre_sucursal' %}" method="get">
+        <div class="container-buscar form-inline2">
+        <input class="form-control mr-sm-2 input-buscar" type="search" placeholder="Search..." aria-label="Search" name="buscar">
+        <button class="btn btn-outline-success my-2 my-sm-1 button-buscar" type="submit">Search</button>
+        </div>
+        <div class="row col-9 justify-content-end mb-2 "> -->
+          <!-- <button type="button" class="btn btn-success col-md-2">Agregar Nuevo</button> -->
+          <!-- <a href="{% url 'registrarFiscal' %}" class="btn btn-success col-md-3 btn-agregar">Agregar Nuevo</a>
+      </div>
+      </form>
+    </nav> -->
+
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Numero Sucursal</th>
+            <th scope="col">Nombre Sucursal</th>
+            <th scope="col">Nombre de archivo</th>
+            <th scope="col">Fecha de Creacion</th>
+            <th scope="col">Fecha de Modificacion</th>
+            <th scope="col">Tamaño de Archivo</th>
+            <th scope="col">Link de Descarga</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for f in list %}
+
+          <tr>
+            <th scope="row" class="td-data"></th>
+            <td class="nro-fiscal">{{ f['title'] }}</td>
+            <td>{{ f['mimeType'] }}</td>
+            <td>{{ f['createdDate'] }}</td>
+            <td>{{ f['modifiedDate'] }}</td>
+            <td>{{ f['fileSize'] }}</td>
+            <td></td>
+          </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+
+</body>
+</html>
+
+{% endblock %}
