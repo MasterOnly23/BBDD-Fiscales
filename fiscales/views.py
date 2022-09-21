@@ -57,7 +57,7 @@ class Formulario_view(HttpRequest):
 
     def eliminar_fiscal(request, id_fiscal):
 
-        fiscal = Fiscales.objects.get(pk=id_fiscal) #seleccionamos el objeto de la base de datos que queremos eliminar
+        fiscal = Fiscales.objects.get(pk=id_fiscal) #seleccionamos el objeto de la base de datos que queremos eliminar, buscamos el id
         fiscal.delete() #metodo delete 
         fiscales = Fiscales.objects.all()
         return render(request, 'listaFiscales.html', {"fiscales":fiscales, "msg":"OK"})#agregamos la variable msg para habilitar la alerta del mensaje cuando el alumno sea eliminado correctamente
