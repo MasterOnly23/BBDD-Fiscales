@@ -18,7 +18,7 @@ class Formulario_view(HttpRequest):
 
 
     def guardarFiscal(request):
-
+        #if request.method == 'POST'
         fiscal = Formularios(request.POST)
 
         if fiscal.is_valid(): #validar que la informacion del request es true
