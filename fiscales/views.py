@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.http import HttpRequest
 from fiscales.models import Fiscales
 from fiscales.forms import Formularios
+from django.db.models import Q 
 
 # Create your views here.
 
@@ -67,7 +68,11 @@ class Formulario_view(HttpRequest):
         queryset = request.GET.get("buscar")
         if queryset:
 
-            sucursal = Fiscales.objects.filter(nombre_sucursal__icontains=queryset)
+            sucursal = Fiscales.objects.filter(
+                Q(nombre_sucursal__icontains = queryset) |
+                Q(numero_serie__icontains= queryset)
+            ).distinct()
+
             return render(request, 'buscar.html', {"sucursal":sucursal})
         else:
             return render(request, 'buscar.html', {"busqueda":queryset, "msg":'No data'})
